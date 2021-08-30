@@ -7,19 +7,55 @@
 
   <title>Test Soan</title>
 
-  <link rel="icon" href="/favicon.ico">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <link rel="stylesheet" href="styles/css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  
 
 </head>
 
-<body>
-  <div class="test" id="target">
-    <p class="bis">HELLO WORLD</p>
+<body id="soan">
+  <div class="container" id="login">
+    <div class="row">
+      <img src="img/logo_soan.png" alt="logo_soan" class="logo">
+    </div>
+    <div class="row">
+      <div class="form-container">
+        <h1>Inscription</h1>
+        <form id="login-form" action="#" method="post">
+          <div class="form-group has-error">
+            <label for="email">Adresse email</label>
+            <input type="email" class="form-control" id="email" placeholder="Adresse email" required />
+          </div>
+          <div class="form-group has-error">
+            <label for="password">Mot de passe</label>
+            <input type="password" class="form-control" id="password" placeholder="Mot de passe" required />
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="cgu" required />
+            <label class="form-check-label" for="cgu">J'accepte les <a href="#">Conditions Générales d'Utilisation</a></label>
+          </div>
+          <button type="button" class="btn btn-primary" id="submit">S'inscrire</button>
+        </form>
+        <hr />
+        <div class="row socials">
+          <div class="col-md-6">
+            <button type="button"><img src="img/google_icon.png" alt="google" /> Google</button>
+          </div>
+          <div class="col-md-6">
+            <button type="button"><img src="img/linkedin_icon.png" alt="google" />Linkedin</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <a href="#">J'ai déjà un compte</a>
+    </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
   <script src="js/scripts.js"></script>
 </body>
 </html>
