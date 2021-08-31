@@ -46,7 +46,7 @@ $semibold: 500;
         margin: 0 auto;
         box-shadow: 0px 5px 14px 1px rgba(0,0,0,0.1);
         font-family: $kanit;
-        font-weight: $extra-light;
+        font-weight: $light;
 
         @media only screen and (max-width: 768px){
             padding: .5em;
@@ -59,7 +59,7 @@ $semibold: 500;
             font-weight: $semibold;
         }
 
-        input { font-weight: $thin; }
+        input { font-weight: $extra-light; }
 
         .form-control:focus {
             box-shadow: unset;
