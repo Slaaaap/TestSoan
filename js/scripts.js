@@ -1,3 +1,5 @@
+var defaultTab = document.getElementById("defaultOpen");
+
 $(document).ready(function () {
   $("#submit").click(function () {
     if (checkForm())
@@ -24,7 +26,7 @@ function send() {
 
   $.ajax({
     url: "https://demo.soan-solutions.io/test_front/inscription",
-    type: "get", //send it through get method
+    type: "post",
     data: { 
       email: $("#email").val(),
       password: $("#password").val(),
@@ -54,11 +56,14 @@ function openTab(evt, tab) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
   document.getElementById(tab).style.display = "block";
-  if(evt.currentTarget !== undefined)
+  if(evt.currentTarget !== undefined){
     evt.currentTarget.className += " active";
+  }
 }
 
-document.getElementById("defaultOpen").click();
+if (defaultTab) {
+  document.getElementById("defaultOpen").click();
+}
 
 function payBill() {
   $("#billActive").css({ display: "none" });
@@ -66,4 +71,23 @@ function payBill() {
   $("#defaultOpen").css({ display: "none" });
   $("#paidBill").css({ display: "block" });
   document.getElementById("tab2").click();
+}
+
+function fetchClientInfos() {
+  var name, phone, email
+
+  $.ajax({
+    url: 'https://demo.soan-solutions.io/test_front/company/CIKLEA/infos',
+    type: "GET",
+    dataType: 'json',
+    success: function (data) {
+        name = data.company.name
+        phone = data.company.phoneNumber
+        email = data.company.email
+
+        $("#clientName").html(name)
+        $("#clientPhone").html(phone)
+        $("#clientEmail").html(email)
+    }
+});
 }

@@ -19,6 +19,8 @@
 
 <body id="soan-invoices-bg">
   <div class="container" id="invoices">
+
+    <!-- Header -->
     <div class="row" id="header">
       <div class="title">
         <h1>Factures fournisseurs pour <span>SAS Atelier des lieux</span></h1>
@@ -29,9 +31,12 @@
         <img src="../img/logoetoile.svg" alt="logo_soan" />
       </div>
     </div>
+
+    <!-- Invoices list -->
     <div class="row invoices-list">
+      <!-- Left side -->
       <div class="col-md-8 ls">
-        <h2 class="client-name"><span data-bs-toggle="modal" data-bs-target="#clientModal">Ciklea-Paris</span></h2>
+        <h2 class="client-name"><span data-bs-toggle="modal" data-bs-target="#clientModal" onclick="fetchClientInfos()">Ciklea-Paris</span></h2>
         <div class="tabs">
           <button class="tablinks" onclick="openTab(event, 'to-pay')" id="defaultOpen">À payer</button>
           <button class="tablinks" onclick="openTab(event, 'paid')" id="tab2">Payé</button>
@@ -89,6 +94,8 @@
           </div>
         </div>
       </div>
+
+      <!-- Right Side -->
       <div class="col-md-4 rs">
         <div class="payment-status-container" id="billActive">
           <h4>Récapitulatif</h4>
@@ -108,6 +115,8 @@
         </div>
       </div>
     </div>
+
+    <!-- Bottom advertisement -->
     <div class="row advertisement">
       <div class="col-md-8 headline">
         <span>Profitez du paiement en 3x sans frais en vous inscrivant sur Soan !</span>
@@ -120,7 +129,7 @@
     <div class="spacer"></div>
   </div>
 
-  <!-- Modal Paiement -->
+  <!-- Payment modal -->
   <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -149,7 +158,7 @@
     </div>
   </div>
 
-   <!-- Modal infos client -->
+   <!-- Client infos modal -->
    <div class="modal fade" id="clientModal" tabindex="-1" aria-labelledby="paymentModalLabel">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -157,25 +166,22 @@
           <button type="button" class="btn-close btn-close-blue" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <h5>Ciklea-Paris</i>
-          </h5>
+          <h5 id="clientName"></h5>
           <div class="phone">
             <p>Téléphone</p>
-            <span>+33 659060133</span>
+            <span id="clientPhone"></span>
           </div>
           <div class="mail">
             <p>Mail</p>
-            <span>lucas@soan-solutions.io</span>
+            <span id="clientEmail"></span>
           </div>
         </div>
       </div>
     </div>
   </div>
-
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
   <script src="../js/scripts.js"></script>
 </body>
 </html>
