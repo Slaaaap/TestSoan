@@ -1,10 +1,46 @@
 var defaultTab = document.getElementById("defaultOpen");
+var boolEmail, boolPassword, boolCGU;
 $(document).ready(function() {
+  $("#submit").prop("disabled", true);
+  $("#email").blur(function () {
+    if ($("#email").val().length !== 0) {
+      boolEmail = true
+    } else {
+      boolEmail = false;
+    }
+    checkSubmit()
+  })
+  $("#password").blur(function () {
+    if ($("#password").val().length !== 0) {
+      boolPassword = true
+    } else {
+      boolPassword = false;
+    }
+    checkSubmit()
+  })
+  $("#cgu").click(function () {
+    if ($("#cgu").is(":checked")) {
+      boolCGU = true
+    } else {
+      boolCGU = false;
+    }
+    checkSubmit()
+  })
+
 	$("#submit").click(function() {
 		if(checkForm()) send();
 		else alert('Le formulaire est invalide');
 	});
 });
+
+/** Disables or enables the submit button */
+function checkSubmit() {
+  if (boolEmail && boolPassword && boolCGU) {
+    $("#submit").prop("disabled", false);
+  } else {
+    $("#submit").prop("disabled", true);
+  }
+}
 
 /** Checks if form is valid */
 function checkForm() {
