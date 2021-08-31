@@ -2,13 +2,16 @@
 
 $white: #fff;
 $black: #000;
+$orange: #ff9b65;
 $soan-blue: #0076ff;
 $darker-blue: #0463d2;
+$green: #00e9c3;
+$darker-green: #07e0bd;
 $light-blue: #d9ebff;
 $gray: #ced4da;
 $light-gray: #efefef;
+$textGray: #ababab;
 $btn-close-color: $soan-blue;
-
 
 $kanit: 'Kanit', sans-serif;
 
@@ -180,7 +183,6 @@ $semibold: 500;
     height: 120px;        
     max-width: 100%;
 
-
     #header {
         background-color: $light-gray;
         display: flex;
@@ -293,7 +295,7 @@ $semibold: 500;
 
                     .discount {
                         font-size: 14px;
-                        color: #ff9b65;
+                        color: $orange;
                         font-style: italic;
                         font-weight: $normal;
                         margin-bottom: unset;
@@ -326,12 +328,11 @@ $semibold: 500;
 
                             @media only screen and (max-width: 768px) {
                                 white-space: unset;
-
                             }
                         }
 
                         .deadline {
-                            color: #ababab;
+                            color: $textGray;
                             font-style: italic;
                             font-size: 16px;
                         }
@@ -400,7 +401,7 @@ $semibold: 500;
                     border-bottom: 1px solid $gray;
                     padding-bottom: 1em;
 
-                    .name { color: #ababab; }
+                    .name { color: $textGray; }
                 }
 
                 .bill-total {
@@ -408,7 +409,7 @@ $semibold: 500;
                     justify-content: space-between;
                     margin: 1em 0;
 
-                    .name { color: #ababab; }
+                    .name { color: $textGray; }
                     .value { font-weight: bold; }
                 }
 
@@ -420,15 +421,11 @@ $semibold: 500;
                     text-transform: uppercase;
                     font-weight: bold;
 
-                    &:hover {
-                        background-color: $darker-blue;
-                    }
+                    &:hover { background-color: $darker-blue; }
                 }
             }
 
-            #nothingToPay {
-                display: none;
-            }
+            #nothingToPay { display: none; }
 
             .validation-container {
                 display: flex;
@@ -449,9 +446,7 @@ $semibold: 500;
                     width: 100%;
                 }
 
-                img, p {
-                    margin-bottom: 12px;
-                }
+                img, p { margin-bottom: 12px; }
             }
         }
     }
@@ -466,7 +461,6 @@ $semibold: 500;
         @media only screen and (max-width: 768px){
             margin: 3em auto;
             width: 95%;
-
         }
 
         .headline {
@@ -490,8 +484,8 @@ $semibold: 500;
             button {
                 text-transform: uppercase;
                 font-weight: bold;
-                background-color: #00e9c3;
-                border-color: #00e9c3;
+                background-color: $green;
+                border-color: $green;
                 width: 75%;
                 max-width: 300px;
                 border-radius: 20px;
@@ -502,28 +496,22 @@ $semibold: 500;
                 }
 
                 &:hover {
-                    background-color: #07e0bd;
-                    border-color: #07e0bd;
+                    background-color: $darker-green;
+                    border-color: $darker-green;
                 }
 
-                &:focus {
-                    box-shadow: none;
-                }
+                &:focus { box-shadow: none; }
             }
         }
     }
-    .spacer {
-        height: 12px;
-    }
+    .spacer { height: 12px; }
 }
 
 /*
 -  Modals Style
 */
 #paymentModal, #clientModal {
-    .modal-header, .modal-footer {
-        border: unset;
-    }
+    .modal-header, .modal-footer { border: unset; }
 
     .modal-header {
         .close {
@@ -543,22 +531,14 @@ $semibold: 500;
             font-weight: bold;
 
             i { 
-                color: #ff9b65;
+                color: $orange;
                 margin-left: 5px;
             }
         }
 
-        .iban, .bic, .phone, .mail {
-            margin-bottom: 2em;
-        }
-
-        p {
-            margin-bottom: unset;
-        }
-
-        span {
-            font-weight: bold;
-        }
+        .iban, .bic, .phone, .mail { margin-bottom: 2em; }
+        p { margin-bottom: unset; }
+        span { font-weight: bold; }
     }
 
     .modal-footer {
@@ -572,9 +552,7 @@ $semibold: 500;
             font-size: 18px;
             font-weight: bold;
 
-            &:hover {
-                background-color: $darker-blue;
-            }
+            &:hover { background-color: $darker-blue; }
         }
     }
 }
