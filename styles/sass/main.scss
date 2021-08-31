@@ -3,9 +3,12 @@
 $white: #fff;
 $black: #000;
 $soan-blue: #0076ff;
+$darker-blue: #0463d2;
 $light-blue: #d9ebff;
 $gray: #ced4da;
 $light-gray: #efefef;
+$btn-close-color: $soan-blue;
+
 
 $kanit: 'Kanit', sans-serif;
 
@@ -15,10 +18,13 @@ $light: 300;
 $normal: 400;
 $semibold: 500;
 
-#soan {
-    background-color: $light-blue;
-}
+#soan-login-bg { background-color: $light-blue; }
 
+#soan-invoices-bg { background-color: $white; }
+
+/*
+-  Login Page Style
+*/
 #login {
     width: 40%;
     margin: 0 auto;
@@ -53,8 +59,11 @@ $semibold: 500;
             font-weight: $semibold;
         }
 
-        input {
-            font-weight: $thin;
+        input { font-weight: $thin; }
+
+        .form-control:focus {
+            box-shadow: unset;
+            border-color: $soan-blue;
         }
 
         .form-check {
@@ -62,9 +71,7 @@ $semibold: 500;
             display: flex;
             align-items: center;
 
-            .form-check-input {
-                margin-top: 0;
-            }
+            .form-check-input { margin-top: 0; }
 
             label {
                 font-size: 14px;
@@ -123,11 +130,12 @@ $semibold: 500;
             text-transform: uppercase;
             border-radius: 25px;
             box-shadow: 0px 3px 14px 1px rgba(0,0,0,0.1);
+            transition: all ease .25s;
+
+            &:hover { background-color: $darker-blue; }
         }
 
-        hr {
-            border-color: $gray;
-        }
+        hr { border-color: $gray; }
 
         .socials {
             button {
@@ -147,7 +155,9 @@ $semibold: 500;
 
                 &:hover {
                     background-color: $light-blue;
+                    border-color: $light-blue;
                 }
+
                 img {
                     max-width: 25px;
                     margin-right: 5px;
@@ -160,5 +170,305 @@ $semibold: 500;
         font-weight: $semibold;
         color: $soan-blue;
         margin: 2em auto;
+    }
+}
+
+/*
+-  Invoices Page Style
+*/
+#invoices {
+    height: 200px;        
+    max-width: 100%;
+
+
+    #header {
+        background-color: $light-gray;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        height: 100%;
+        box-shadow: 0px 5px 14px 1px rgba(0,0,0,0.1);
+
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+
+            h1 {
+                font-weight: $light;
+                font-size: 32px;
+
+                @media only screen and (max-width: 768px) {
+                    font-size: 24px;
+                    text-align: center;
+                }
+            }
+
+            span {
+                text-transform: uppercase;
+                font-weight: $semibold;
+            }
+        }
+    }
+
+    #logo {
+        justify-content: center;
+
+        .logo-container {
+            background-color: white;
+            padding: 21px;
+            border-radius: 50%;
+            margin-top: -36px;
+            box-shadow: 0px 5px 14px 1px rgba(0,0,0,0.1);
+            width: 78px;
+    
+            img {
+                margin-top: -2px;
+                width: 36px;
+            }
+        }
+    }
+
+    .invoices-list {
+        padding: 0 3em;
+
+        @media only screen and (max-width: 768px) {
+            padding: 0 1em;
+        }
+
+        .ls {
+            .client-name { 
+                margin-top: 1em;
+                text-transform: uppercase;
+
+                &:hover { cursor: pointer; }
+                @media only screen and (max-width: 768px) {
+                    text-align: center;
+                }
+            }
+
+            .tabs {
+                margin-top: 4em;
+                overflow: hidden;
+                border-bottom: 1px solid #ccc;
+            }
+                
+            .tabs button {
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.05s;
+                font-size: 17px;
+            }
+                
+            .tabs button.active {
+                border-bottom: 3px solid $soan-blue;
+                font-weight: bold;
+            }
+
+            #to-pay {
+
+                h5 { margin-bottom: unset; }
+
+                .invoice-price {
+                    display: flex;
+                    flex-direction: column;
+                    padding-right: unset;
+                    
+                    #old { text-decoration: line-through; }
+
+                    #new { color: $soan-blue; }
+
+                    .discount {
+                        font-size: 14px;
+                        color: #ff9b65;
+                        font-style: italic;
+                        font-weight: $normal;
+                        margin-bottom: unset;
+                    }
+                }
+            }
+                
+            .tabcontent {
+                display: none;
+                animation: fadeEffect 1s;
+
+                .single-invoice {
+                    border-top: 1px solid $light-gray;
+                    padding: 1em 0;
+
+                    .row { align-items: center; }
+
+                    .invoice-details {
+                        p {
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            width: 100%;
+                            display: block;
+                            overflow: hidden;
+                            margin-bottom: 0;
+
+                            @media only screen and (max-width: 768px) {
+                                white-space: unset;
+
+                            }
+                        }
+
+                        .deadline {
+                            color: #ababab;
+                            font-style: italic;
+                            font-size: 16px;
+                        }
+                    }
+
+                    .invoice-price {
+                        text-align: right;
+                        font-size: 22px;
+                        font-weight: bold;
+
+                        @media only screen and (max-width: 768px) {
+                            margin-top: 1em;
+                            text-align: left;
+                        }
+                    }
+                }
+
+                .invoice-view { text-align: right; }
+
+                .invoice-download {
+                    @media only screen and (max-width: 768px) {
+                        text-align: right;
+                    }
+                }
+
+                .bi-eye, .bi-download {
+                    font-size: 22px;
+                    color: $soan-blue;
+
+                    &:hover {
+                        color: $darker-blue;
+                        cursor: pointer;
+                    }
+                }
+            }
+                
+            @keyframes fadeEffect {
+                from { opacity: 0; }
+                to { opacity: 1; }
+            }
+        }
+
+        .rs {
+            .payment-status-container {
+                width: 90%;
+                margin: 0 auto;
+                padding: 2em 2.5em 1em 2.5em;
+                border-radius: 10px;
+                box-shadow: 0px 5px 14px 1px rgba(0,0,0,0.1);
+                font-size: 18px;
+
+                @media only screen and (max-width: 768px) {
+                    width: 100%;
+                    margin-bottom: 1em;
+                    padding: 1.5em;
+                }
+                h4 { margin-bottom: 1em; }
+
+                .bill-entry {
+                    display: flex;
+                    justify-content: space-between;
+                    border-bottom: 1px solid $gray;
+                    padding-bottom: 1em;
+
+                    .name { color: #ababab; }
+                }
+
+                .bill-total {
+                    display: flex;
+                    justify-content: space-between;
+                    margin: 1em 0;
+
+                    .value { font-weight: bold; }
+                }
+
+                .pay {
+                    background-color: $soan-blue;
+                    width: 100%;
+                    margin-top: 1em;
+                    border-radius: 25px;
+                    text-transform: uppercase;
+                    font-weight: bold;
+
+                    &:hover {
+                        background-color: $darker-blue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*
+-  Modals Style
+*/
+#paymentModal, #clientModal {
+    .modal-header, .modal-footer {
+        border: unset;
+    }
+
+    .modal-header {
+        .close {
+            color: $soan-blue; 
+            opacity: 1;
+        }
+        .btn-close-blue {
+            background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230076ff'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+          }
+    }
+
+    .modal-body {
+        padding: 1em 2em;
+
+        h5 {
+            margin-bottom: 2em;
+            font-weight: bold;
+
+            i { 
+                color: #ff9b65;
+                margin-left: 5px;
+            }
+        }
+
+        .iban, .bic, .phone, .mail {
+            margin-bottom: 2em;
+        }
+
+        p {
+            margin-bottom: unset;
+        }
+
+        span {
+            font-weight: bold;
+        }
+    }
+
+    .modal-footer {
+        padding: 0 2em 1em 2em;
+        button {
+            width: 100%;
+            border-radius: 25px;
+            background-color: $soan-blue;
+            padding: 12px;
+            font-size: 20px;
+            font-weight: bold;
+
+            &:hover {
+                background-color: $darker-blue;
+            }
+        }
     }
 }

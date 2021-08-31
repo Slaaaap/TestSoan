@@ -11,50 +11,145 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
   <link rel="stylesheet" href="../styles/css/style.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  
 </head>
 
-<body id="soan">
-  <div class="container" id="login">
-    <div class="row">
-      <img src="../img/logo_soan.png" alt="logo_soan" class="logo">
+<body id="soan-invoices-bg">
+  <div class="container" id="invoices">
+    <div class="row" id="header">
+      <div class="title">
+        <h1>Factures fournisseurs pour <span>SAS Atelier des lieux</span></h1>
+      </div>
     </div>
-    <div class="row">
-      <div class="form-container">
-        <h1>Invoices</h1>
-        <form id="login-form" action="#" method="post">
-          <div class="form-group has-error">
-            <label for="email">Adresse email</label>
-            <input type="email" class="form-control" id="email" placeholder="Adresse email" required />
+    <div class="row" id="logo">
+      <div class="logo-container">
+        <img src="../img/logoetoile.svg" alt="logo_soan">
+      </div>
+    </div>
+    <div class="row invoices-list">
+      <div class="col-md-8 ls">
+        <h2 class="client-name" data-bs-toggle="modal" data-bs-target="#clientModal">Ciklea-Paris</h2>
+        <div class="tabs">
+          <button class="tablinks" onclick="openTab(event, 'to-pay')" id="defaultOpen">À payer</button>
+          <button class="tablinks" onclick="openTab(event, 'paid')">Payé</button>
+        </div>
+        <div id="to-pay" class="tabcontent">
+          <div class="single-invoice">
+            <div class="row">
+              <div class="col-md-6 invoice-details">
+                <h5>FAC1510</h5>
+                <p class="deadline">À payer avant le 28/09/2021</p>
+              </div>
+              <div class="col-md-4 invoice-price">
+                <span id="old">800,00€</span>
+                <span id="new">776€</span>
+                <p class="discount"><i class="bi bi-tag-fill"></i> 5% d'escompte jusqu'au 17/09/2021</p>
+              </div>
+              <div class="col-md-1 invoice-view"><i class="bi bi-eye"></i></div>
+              <div class="col-md-1 invoice-download"><i class="bi bi-download"></i></div>
+            </div>
           </div>
-          <div class="form-group has-error">
-            <label for="password">Mot de passe</label>
-            <input type="password" class="form-control" id="password" placeholder="Mot de passe" required />
+        </div>
+        <div id="paid" class="tabcontent">
+          <div class="single-invoice">
+            <div class="row">
+              <div class="col-md-8 invoice-details">
+                <h5>FAC1610</h5>
+                <p>Provision pour mission comptable et fiscale Troisième trimestre 2020</p>
+              </div>
+              <div class="col-md-2 invoice-price">480,00€</div>
+              <div class="col-md-1 invoice-view"><i class="bi bi-eye"></i></div>
+              <div class="col-md-1 invoice-download"><i class="bi bi-download"></i></div>
+            </div>
           </div>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="cgu" required />
-            <label class="form-check-label" for="cgu">J'accepte les <a href="#">Conditions Générales d'Utilisation</a></label>
+          <div class="single-invoice">
+            <div class="row">
+              <div class="col-md-8 invoice-details">
+                <h5>FAC0810</h5>
+                <p>Provision pour mission comptable et fiscale Deuxième trimestre 2020</p>
+              </div>
+              <div class="col-md-2 invoice-price">480,00€</div>
+              <div class="col-md-1 invoice-view"><i class="bi bi-eye"></i></div>
+              <div class="col-md-1 invoice-download"><i class="bi bi-download"></i></div>
+            </div>
           </div>
-          <button type="button" class="btn btn-primary" id="submit">S'inscrire</button>
-        </form>
-        <hr />
-        <div class="row socials">
-          <div class="col-md-6">
-            <button type="button"><img src="../img/google_icon.png" alt="google" /> Google</button>
+        </div>
+      </div>
+      <div class="col-md-4 rs">
+        <div class="payment-status-container">
+          <h4>Récapitulatif</h4>
+          <div class="bill-entry">
+            <span class="name">1 facture</span>
+            <span class="price">776,00€</span>
           </div>
-          <div class="col-md-6">
-            <button type="button"><img src="../img/linkedin_icon.png" alt="google" />Linkedin</button>
+          <div class="bill-total">
+            <span class="name">Total</span>
+            <span class="value">776,00€</span>
+          </div>
+          <button type="button" class="btn btn-primary pay" data-bs-toggle="modal" data-bs-target="#paymentModal">Payer par virement</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Paiement -->
+  <div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close btn-close-blue" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h5>Payer 776,00€ <i class="bi bi-files"></i>
+          </h5>
+          <div class="iban">
+            <p>IBAN</p>
+            <span>FR49 3000 2004 4000 0037 5630 B40</span>
+          </div>
+          <div class="bic">
+            <p>Code BIC</p>
+            <span>CRLYFRPPXX</span>
+          </div>
+          
+          <p>Afin d'en faciliter le traitement, merci d'indiquer les références de factures suivantes dans le libellé de votre virement :</p>
+          <span>FAC1510</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Terminé</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+   <!-- Modal infos client -->
+   <div class="modal fade" id="clientModal" tabindex="-1" aria-labelledby="paymentModalLabel">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close btn-close-blue" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h5>Ciklea-Paris</i>
+          </h5>
+          <div class="phone">
+            <p>Téléphone</p>
+            <span>+33 659060133</span>
+          </div>
+          <div class="mail">
+            <p>Mail</p>
+            <span>lucas@soan-solutions.io</span>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <a href="#">J'ai déjà un compte</a>
-    </div>
   </div>
+
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
   <script src="../js/scripts.js"></script>
 </body>
