@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $("#submit").click(function () {
     if (checkForm())
-      send()
+      send();
     else
       alert('Le formulaire est invalide');
   })
@@ -9,15 +9,14 @@ $(document).ready(function () {
 
 function checkForm() {
   var regexEmail = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
-
   var validEmail = regexEmail.test($("#email").val());
   var password = $("#password").val();
   var validCgu = $("#cgu").is(":checked");
 
   if (validEmail && validCgu && password.length > 0)
-    return true
+    return true;
   else
-    return false
+    return false;
 }
 
 function send() {
@@ -30,17 +29,16 @@ function send() {
       email: $("#email").val(),
       password: $("#password").val(),
     },
-    success: function(response) {
+    success: function() {
       $('#submit').html('Succès !');
       $("#submit").prop("disabled", false);
       location.replace("pages/invoices.html");
     },
-    error: function(xhr) {
+    error: function() {
       $('#submit').html('Une erreur est survenue.');
       $("#submit").prop("disabled", false);
     }
   });
-
   $("#submit").prop("disabled", true);
 }
 
@@ -56,8 +54,16 @@ function openTab(evt, tab) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
   document.getElementById(tab).style.display = "block";
-  evt.currentTarget.className += " active";
+  if(evt.currentTarget !== undefined)
+    evt.currentTarget.className += " active";
 }
 
-// Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+
+function payBill() {
+  $("#billActive").css({ display: "none" });
+  $("#nothingToPay").css({ display: "flex" });
+  $("#defaultOpen").css({ display: "none" });
+  $("#paidBill").css({ display: "block" });
+  document.getElementById("tab2").click();
+}

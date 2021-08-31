@@ -238,14 +238,17 @@ $semibold: 500;
         }
 
         .ls {
+            margin-bottom: 2em;
+
             .client-name { 
                 margin-top: 1em;
                 text-transform: uppercase;
 
-                &:hover { cursor: pointer; }
                 @media only screen and (max-width: 768px) {
                     text-align: center;
                 }
+
+                span:hover { cursor: pointer; }
             }
 
             .tabs {
@@ -262,7 +265,7 @@ $semibold: 500;
                 cursor: pointer;
                 padding: 14px 16px;
                 transition: 0.05s;
-                font-size: 17px;
+                font-size: 22px;
             }
                 
             .tabs button.active {
@@ -291,6 +294,10 @@ $semibold: 500;
                         margin-bottom: unset;
                     }
                 }
+            }
+
+            #paidBill {
+                display: none;
             }
                 
             .tabcontent {
@@ -363,6 +370,9 @@ $semibold: 500;
         }
 
         .rs {
+            @media only screen and (max-width: 768px) {
+                padding: unset;
+            }
             .payment-status-container {
                 width: 90%;
                 margin: 0 auto;
@@ -408,7 +418,94 @@ $semibold: 500;
                     }
                 }
             }
+
+            #nothingToPay {
+                display: none;
+            }
+
+            .validation-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 90%;
+                margin: 0 auto;
+                padding: 2em;
+                border-radius: 10px;
+                box-shadow: 0px 5px 14px 1px rgba(0,0,0,0.1);
+                font-size: 14px;
+                font-style: italic;
+                text-align: center;
+                min-height: 190px;
+
+                @media only screen and (max-width: 768px) {
+                    width: 100%;
+                }
+
+                img, p {
+                    margin-bottom: 12px;
+                }
+            }
         }
+    }
+    .advertisement {
+        background-color: $light-gray;
+        margin: 3em 3em 1em 3em;
+        background-color: #f7f6f6;
+        border-radius: 30px;
+        width: 90%;
+        padding: 2em;
+
+        @media only screen and (max-width: 768px){
+            margin: 3em auto;
+            width: 95%;
+
+        }
+
+        .headline {
+            font-weight: bold;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            font-size: 18px;
+        }
+
+        .cta {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            @media only screen and (max-width: 768px){
+                justify-content: center;
+                margin-top: 2em;
+            }
+
+            button {
+                text-transform: uppercase;
+                font-weight: bold;
+                background-color: #00e9c3;
+                border-color: #00e9c3;
+                width: 75%;
+                border-radius: 20px;
+                padding: 0.5em 0;
+
+                @media only screen and (max-width: 768px){
+                    width: 95%;
+                }
+
+                &:hover {
+                    background-color: #07e0bd;
+                    border-color: #07e0bd;
+                }
+
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+    .spacer {
+        height: 12px;
     }
 }
 
@@ -431,7 +528,7 @@ $semibold: 500;
     }
 
     .modal-body {
-        padding: 1em 2em;
+        padding: 0em 2em 1em 2em;
 
         h5 {
             margin-bottom: 2em;
@@ -458,12 +555,13 @@ $semibold: 500;
 
     .modal-footer {
         padding: 0 2em 1em 2em;
+
         button {
             width: 100%;
             border-radius: 25px;
             background-color: $soan-blue;
-            padding: 12px;
-            font-size: 20px;
+            padding: 8px;
+            font-size: 18px;
             font-weight: bold;
 
             &:hover {

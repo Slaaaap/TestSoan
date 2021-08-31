@@ -163,93 +163,100 @@
     @media only screen and (max-width: 768px) {
       #invoices .invoices-list {
         padding: 0 1em; } }
-    #invoices .invoices-list .ls .client-name {
-      margin-top: 1em;
-      text-transform: uppercase; }
-      #invoices .invoices-list .ls .client-name:hover {
-        cursor: pointer; }
-      @media only screen and (max-width: 768px) {
-        #invoices .invoices-list .ls .client-name {
-          text-align: center; } }
-    #invoices .invoices-list .ls .tabs {
-      margin-top: 4em;
-      overflow: hidden;
-      border-bottom: 1px solid #ccc; }
-    #invoices .invoices-list .ls .tabs button {
-      background-color: inherit;
-      float: left;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      transition: 0.05s;
-      font-size: 17px; }
-    #invoices .invoices-list .ls .tabs button.active {
-      border-bottom: 3px solid #0076ff;
-      font-weight: bold; }
-    #invoices .invoices-list .ls #to-pay h5 {
-      margin-bottom: unset; }
-    #invoices .invoices-list .ls #to-pay .invoice-price {
-      display: flex;
-      flex-direction: column;
-      padding-right: unset; }
-      #invoices .invoices-list .ls #to-pay .invoice-price #old {
-        text-decoration: line-through; }
-      #invoices .invoices-list .ls #to-pay .invoice-price #new {
-        color: #0076ff; }
-      #invoices .invoices-list .ls #to-pay .invoice-price .discount {
-        font-size: 14px;
-        color: #ff9b65;
-        font-style: italic;
-        font-weight: 400;
-        margin-bottom: unset; }
-    #invoices .invoices-list .ls .tabcontent {
-      display: none;
-      animation: fadeEffect 1s; }
-      #invoices .invoices-list .ls .tabcontent .single-invoice {
-        border-top: 1px solid #efefef;
-        padding: 1em 0; }
-        #invoices .invoices-list .ls .tabcontent .single-invoice .row {
-          align-items: center; }
-        #invoices .invoices-list .ls .tabcontent .single-invoice .invoice-details p {
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          width: 100%;
-          display: block;
-          overflow: hidden;
-          margin-bottom: 0; }
-          @media only screen and (max-width: 768px) {
-            #invoices .invoices-list .ls .tabcontent .single-invoice .invoice-details p {
-              white-space: unset; } }
-        #invoices .invoices-list .ls .tabcontent .single-invoice .invoice-details .deadline {
-          color: #ababab;
-          font-style: italic;
-          font-size: 16px; }
-        #invoices .invoices-list .ls .tabcontent .single-invoice .invoice-price {
-          text-align: right;
-          font-size: 22px;
-          font-weight: bold; }
-          @media only screen and (max-width: 768px) {
-            #invoices .invoices-list .ls .tabcontent .single-invoice .invoice-price {
-              margin-top: 1em;
-              text-align: left; } }
-      #invoices .invoices-list .ls .tabcontent .invoice-view {
-        text-align: right; }
-      @media only screen and (max-width: 768px) {
-        #invoices .invoices-list .ls .tabcontent .invoice-download {
-          text-align: right; } }
-      #invoices .invoices-list .ls .tabcontent .bi-eye, #invoices .invoices-list .ls .tabcontent .bi-download {
-        font-size: 22px;
-        color: #0076ff; }
-        #invoices .invoices-list .ls .tabcontent .bi-eye:hover, #invoices .invoices-list .ls .tabcontent .bi-download:hover {
-          color: #0463d2;
+    #invoices .invoices-list .ls {
+      margin-bottom: 2em; }
+      #invoices .invoices-list .ls .client-name {
+        margin-top: 1em;
+        text-transform: uppercase; }
+        @media only screen and (max-width: 768px) {
+          #invoices .invoices-list .ls .client-name {
+            text-align: center; } }
+        #invoices .invoices-list .ls .client-name span:hover {
           cursor: pointer; }
+      #invoices .invoices-list .ls .tabs {
+        margin-top: 4em;
+        overflow: hidden;
+        border-bottom: 1px solid #ccc; }
+      #invoices .invoices-list .ls .tabs button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.05s;
+        font-size: 22px; }
+      #invoices .invoices-list .ls .tabs button.active {
+        border-bottom: 3px solid #0076ff;
+        font-weight: bold; }
+      #invoices .invoices-list .ls #to-pay h5 {
+        margin-bottom: unset; }
+      #invoices .invoices-list .ls #to-pay .invoice-price {
+        display: flex;
+        flex-direction: column;
+        padding-right: unset; }
+        #invoices .invoices-list .ls #to-pay .invoice-price #old {
+          text-decoration: line-through; }
+        #invoices .invoices-list .ls #to-pay .invoice-price #new {
+          color: #0076ff; }
+        #invoices .invoices-list .ls #to-pay .invoice-price .discount {
+          font-size: 14px;
+          color: #ff9b65;
+          font-style: italic;
+          font-weight: 400;
+          margin-bottom: unset; }
+      #invoices .invoices-list .ls #paidBill {
+        display: none; }
+      #invoices .invoices-list .ls .tabcontent {
+        display: none;
+        animation: fadeEffect 1s; }
+        #invoices .invoices-list .ls .tabcontent .single-invoice {
+          border-top: 1px solid #efefef;
+          padding: 1em 0; }
+          #invoices .invoices-list .ls .tabcontent .single-invoice .row {
+            align-items: center; }
+          #invoices .invoices-list .ls .tabcontent .single-invoice .invoice-details p {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 100%;
+            display: block;
+            overflow: hidden;
+            margin-bottom: 0; }
+            @media only screen and (max-width: 768px) {
+              #invoices .invoices-list .ls .tabcontent .single-invoice .invoice-details p {
+                white-space: unset; } }
+          #invoices .invoices-list .ls .tabcontent .single-invoice .invoice-details .deadline {
+            color: #ababab;
+            font-style: italic;
+            font-size: 16px; }
+          #invoices .invoices-list .ls .tabcontent .single-invoice .invoice-price {
+            text-align: right;
+            font-size: 22px;
+            font-weight: bold; }
+            @media only screen and (max-width: 768px) {
+              #invoices .invoices-list .ls .tabcontent .single-invoice .invoice-price {
+                margin-top: 1em;
+                text-align: left; } }
+        #invoices .invoices-list .ls .tabcontent .invoice-view {
+          text-align: right; }
+        @media only screen and (max-width: 768px) {
+          #invoices .invoices-list .ls .tabcontent .invoice-download {
+            text-align: right; } }
+        #invoices .invoices-list .ls .tabcontent .bi-eye, #invoices .invoices-list .ls .tabcontent .bi-download {
+          font-size: 22px;
+          color: #0076ff; }
+          #invoices .invoices-list .ls .tabcontent .bi-eye:hover, #invoices .invoices-list .ls .tabcontent .bi-download:hover {
+            color: #0463d2;
+            cursor: pointer; }
 
 @keyframes fadeEffect {
   from {
     opacity: 0; }
   to {
     opacity: 1; } }
+    @media only screen and (max-width: 768px) {
+      #invoices .invoices-list .rs {
+        padding: unset; } }
     #invoices .invoices-list .rs .payment-status-container {
       width: 90%;
       margin: 0 auto;
@@ -286,6 +293,70 @@
         font-weight: bold; }
         #invoices .invoices-list .rs .payment-status-container .pay:hover {
           background-color: #0463d2; }
+    #invoices .invoices-list .rs #nothingToPay {
+      display: none; }
+    #invoices .invoices-list .rs .validation-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 90%;
+      margin: 0 auto;
+      padding: 2em;
+      border-radius: 10px;
+      box-shadow: 0px 5px 14px 1px rgba(0, 0, 0, 0.1);
+      font-size: 14px;
+      font-style: italic;
+      text-align: center;
+      min-height: 190px; }
+      @media only screen and (max-width: 768px) {
+        #invoices .invoices-list .rs .validation-container {
+          width: 100%; } }
+      #invoices .invoices-list .rs .validation-container img, #invoices .invoices-list .rs .validation-container p {
+        margin-bottom: 12px; }
+  #invoices .advertisement {
+    background-color: #efefef;
+    margin: 3em 3em 1em 3em;
+    background-color: #f7f6f6;
+    border-radius: 30px;
+    width: 90%;
+    padding: 2em; }
+    @media only screen and (max-width: 768px) {
+      #invoices .advertisement {
+        margin: 3em auto;
+        width: 95%; } }
+    #invoices .advertisement .headline {
+      font-weight: bold;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      font-size: 18px; }
+    #invoices .advertisement .cta {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center; }
+      @media only screen and (max-width: 768px) {
+        #invoices .advertisement .cta {
+          justify-content: center;
+          margin-top: 2em; } }
+      #invoices .advertisement .cta button {
+        text-transform: uppercase;
+        font-weight: bold;
+        background-color: #00e9c3;
+        border-color: #00e9c3;
+        width: 75%;
+        border-radius: 20px;
+        padding: 0.5em 0; }
+        @media only screen and (max-width: 768px) {
+          #invoices .advertisement .cta button {
+            width: 95%; } }
+        #invoices .advertisement .cta button:hover {
+          background-color: #07e0bd;
+          border-color: #07e0bd; }
+        #invoices .advertisement .cta button:focus {
+          box-shadow: none; }
+  #invoices .spacer {
+    height: 12px; }
 
 /*
 -  Modals Style
@@ -301,7 +372,7 @@
   background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230076ff'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat; }
 
 #paymentModal .modal-body, #clientModal .modal-body {
-  padding: 1em 2em; }
+  padding: 0em 2em 1em 2em; }
   #paymentModal .modal-body h5, #clientModal .modal-body h5 {
     margin-bottom: 2em;
     font-weight: bold; }
@@ -321,8 +392,8 @@
     width: 100%;
     border-radius: 25px;
     background-color: #0076ff;
-    padding: 12px;
-    font-size: 20px;
+    padding: 8px;
+    font-size: 18px;
     font-weight: bold; }
     #paymentModal .modal-footer button:hover, #clientModal .modal-footer button:hover {
       background-color: #0463d2; }
